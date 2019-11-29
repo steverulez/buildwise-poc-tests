@@ -170,13 +170,13 @@ end
 
 
 desc "run acurity-client tests from BuildWise"
-task "ci:ui_tests:acurity_client" => ["ci:setup:rspec"] do
+task "ci:ui_tests:acurity-client" => ["ci:setup:rspec"] do
   build_id = buildwise_start_build(:working_dir => File.expand_path(File.dirname(__FILE__)))
   puts "[Rake] new build id =>|#{build_id}|"
   begin
     # puts "[Rake] Invoke"
     FileUtils.rm_rf("spec/reports") if File.exists?("spec/reports")
-    Rake::Task["ui_tests:acurity_client"].invoke
+    Rake::Task["ui_tests:acurity-client"].invoke
     # puts "[Rake] Invoke Finish"
   ensure
     puts "Finished: Notify build status"

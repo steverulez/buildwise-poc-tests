@@ -7,5 +7,4 @@ spec/debug.log
 debug.log
 spec/selected_scripts_spec.rb
 utils/debug.log
-env-var.yml
 tmp/*

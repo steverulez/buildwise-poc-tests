@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getMemberAccountsWithBalancesByClientId00001>
+         <endUser><%= end_user %></endUser>
+         <!--Optional:-->
+         <clientId><%= client_number %></clientId>
+         <% if defined?(effective_date) %>
+         <effectiveDate><%= effective_date %></effectiveDate>
+         <% end %>
+      </ser:getMemberAccountsWithBalancesByClientId00001>
+   </soapenv:Body>
+</soapenv:Envelope>

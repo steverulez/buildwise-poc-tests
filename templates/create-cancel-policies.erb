@@ -1,0 +1,7 @@
+CONTROL:DBC=AA:REQ=BA:BTC=W__U__:REP=V001:USR=AKD:DIV=*:FND:----MBR=******:EFD=<%= results.first['PMIF_TRANSITION_DATE'] rescue nil%>
+HDR:PL CLI CMM INS PLN STT
+<% results.each do |row|%>
+"<%= row['PLz_Client'].strip.rjust(13, " ") %>","<%=row['Policy_Commencement']%>","<%=row['PLz_Insurer']%>",<%=row['Policy_Number']%>,"CA"
+<% end%>
+END-OF-FILE
+

@@ -1,0 +1,17 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:addMember00001>         
+         <endUser><%= end_user %></endUser>
+         <AddMemberInput>
+            <MDz_Fund><%= member.fund %></MDz_Fund>   
+            <MDz_Group><%= member.group %></MDz_Group>
+            <MDz_Acct_No><%= member.client_number%></MDz_Acct_No>
+            <MDz_Category><%= member.category %></MDz_Category>            
+            <MDz_Payroll><%= member.payroll %></MDz_Payroll>
+            <MDd_Joined_Fund><%= member.joined_fund %></MDd_Joined_Fund>
+            <MDc_Working_Status><%= member.working_status %></MDc_Working_Status>
+         </AddMemberInput>
+      </ser:addMember00001>
+   </soapenv:Body>
+</soapenv:Envelope>

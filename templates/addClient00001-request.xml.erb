@@ -1,0 +1,29 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:addClient00001>
+         <endUser><%= end_user %></endUser>
+         <AddClientInput>
+            <D2z_Sex><%= client.sex rescue nil  %></D2z_Sex>
+            <D2z_Title><%= client.title %></D2z_Title>
+            <D2z_Marital_Status><%= client.marital_status %></D2z_Marital_Status>
+            <D2z_Occupation><%= client.occupation%></D2z_Occupation>
+            <D2c_Smoker><%= client.smoker ? 'Y' : 'N' %></D2c_Smoker>
+            <D2z_Birth_Place><%= client.birth_place %></D2z_Birth_Place>
+            <D2z_Email><%= client.email %></D2z_Email>
+            <D2z_Country><%= client.country %></D2z_Country>
+            <D2z_Suburb><%= client.suburb rescue nil %></D2z_Suburb>
+            <D2z_State><%= client.state rescue 'QLD'%></D2z_State>
+            <D2z_Post_Code><%= client.post_code rescue nil%></D2z_Post_Code>
+            <D2z_Home_Phone><%= client.home_phone rescue nil %></D2z_Home_Phone>
+            <D2z_Work_Phone><%= client.work_phone rescue nil %></D2z_Work_Phone>
+            <D2z_Country_Code><%= client.country_code rescue "AU" %></D2z_Country_Code>
+            <D2z_Status><%= client.status rescue nil %></D2z_Status>
+            <D2z_Surname><%= client.surname %></D2z_Surname>
+            <D2z_Given_Names><%= client.given_names %></D2z_Given_Names>
+            <D2z_Mobile_Phone><%= client.mobile_phone %></D2z_Mobile_Phone>
+            <D2d_Birth><%= client.birth.strftime('%Y-%m-%d') %></D2d_Birth>          
+         </AddClientInput>
+      </ser:addClient00001>
+   </soapenv:Body>
+</soapenv:Envelope>

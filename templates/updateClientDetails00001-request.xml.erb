@@ -1,0 +1,16 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:updateClientDetails00001>      
+         <endUser><%= end_user %></endUser>
+         <D2z_Client><%= client.client_number %></D2z_Client>         
+         <D2z_Given_Names><%= client.given_names %></D2z_Given_Names>         
+         <D2z_Surname><%= client.surname %></D2z_Surname>         
+         <% if client.title %><D2z_Title><%= client.title %></D2z_Title><% end %>         
+         <% if client.marital_status %><D2z_Marital_Status><%= client.marital_status %></D2z_Marital_Status><% end %>
+         <% if client.birth %><D2d_Birth><%= client.birth.strftime('%d/%m/%Y') %></D2d_Birth><% end %>
+         <% if client.birth_place%><D2z_Birth_Place><%= client.birth_place %></D2z_Birth_Place><% end %>
+         <% if client.email%><D2z_Email><%= client.email %></D2z_Email><% end %>
+      </ser:updateClientDetails00001>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getInvestmentBreakdown00001>
+         <endUser><%= end_user %></endUser>         
+         <fundCode><%= defined?(fund) ? fund : 'GSUP'%></fundCode>
+         <memberNumber><%= member_number %></memberNumber>
+         <effectiveDate><%= effective_date %></effectiveDate>
+      </ser:getInvestmentBreakdown00001>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,5 @@
+CONTROL:DBC=AA:REQ=BA:BTC=W__U__:REP=V001:USR=AP1:DIV=*:FND:----MBR=******:EFD=<%= effective_date %>
+HDR:PI CAT EFF PBF PBN PLN UDF STT OCC EXC DEL<% unless defined?(benefit_types)%><% benefit_types = ["D", "T"]%><%end %>
+<% benefit_types.each_with_index do |pbd, idx| %>"<%= category %>","<%= commencement_date%>","U","<%=pbd%>",<%= policy_number %>,2.000,"<%= defined?(benefit_statuses) ? benefit_statuses[idx] : benefit_status%>","<%= occ%>",N,N
+<% end %>
+END-OF-FILE

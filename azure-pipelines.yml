@@ -1,0 +1,48 @@
+# Ruby
+# Package your Ruby project.
+# Add steps that install rails, analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - master
+  always: true
+
+strategy:
+  matrix:
+    win-chrome:
+      imageName: 'windows-2019'
+      browser: chrome
+
+pool:
+  vmImage: $(imageName)
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.5'
+
+- pwsh: |
+   echo "##vso[task.prependpath]$env:CHROMEWEBDRIVER"
+  displayName: Adds ChromeWebDriver for Selenium to PATH
+
+- script: gem install bundler
+  workingDirectory: selenium-webdriver-rspec
+  displayName: 'bundler install'
+
+- script: bundle install --gemfile=Gemfile
+  workingDirectory: selenium-webdriver-rspec
+  displayName: 'bundle install'
+
+- script: bundle exec rake -f Rakefile ci:ui_tests:quick
+  displayName: 'bundle exec rake'
+  workingDirectory: selenium-webdriver-rspec
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: '**/SPEC-*.xml'
+    testRunTitle: 'Ruby tests'  

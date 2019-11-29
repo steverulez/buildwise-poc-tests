@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getInsurer>
+        <insurerCode><%= insurer %></insurerCode>
+        <endUser><%= end_user %></endUser>
+      </ser:getInsurer>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,38 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:createPolicyBenefit>
+         <createPolicyBenefitInput>
+            <% if benefit.benefit_roll_in %><PIc_Benefit_Roll_In><%= benefit.benefit_roll_in rescue nil %></PIc_Benefit_Roll_In><% end %>
+            <% if benefit.exclusions_apply %><PIc_Exclusions_Apply><%= benefit.exclusions_apply rescue nil  %></PIc_Exclusions_Apply><% end %>
+            <PId_Effective><%= benefit.effective.strftime('%Y-%m-%d')%></PId_Effective>
+            <PId_PEC_End><%= benefit.pec_end rescue nil  %></PId_PEC_End>
+            <PId_PEC_Start><%= benefit.pec_start rescue nil  %></PId_PEC_Start>
+            <% if benefit.crb %><PIf_CRB><%= benefit.crb %></PIf_CRB><% end %>
+            <% if benefit.dollar_additional %><PIf_DollarAdditional><%= benefit.dollar_additional rescue nil %></PIf_DollarAdditional><% end %>
+            <% if benefit.dollar_default %><PIf_Dollar_Default><%= benefit.dollar_default %></PIf_Dollar_Default><% end %>
+            <!-- <PIf_IP_Salary_Pcnt></PIf_IP_Salary_Pcnt> -->
+            <PIf_Salary><%= benefit.salary rescue nil %></PIf_Salary>
+            <% if benefit.units_additional %><PIf_UnitsAdditional><%= benefit.units_additional rescue nil %></PIf_UnitsAdditional><% end %>
+            <% if benefit.units_default  %><PIf_Units_Default><%= benefit.units_default rescue nil %></PIf_Units_Default><% end %>
+            <PIl_Policy_Number><%= benefit.policy_details.policy_number %></PIl_Policy_Number>
+            <PIz_Benefit_Feature><%= benefit.benefit_feature rescue nil %></PIz_Benefit_Feature>
+            <% if benefit.benefit_type  == "I"%>
+            <PIz_Benefit_Period><%= benefit.benefit_period rescue nil %></PIz_Benefit_Period>
+            <% end %>
+            <PIz_Benefit_Type><%= benefit.benefit_type rescue nil %></PIz_Benefit_Type>
+            <PIz_Client><%= benefit.client.client_number %></PIz_Client>
+            <% if benefit.financial_uwrite  %><PIz_Financial_Uwrite><%= benefit.financial_uwrite rescue nil %></PIz_Financial_Uwrite><% end %>
+            <PIz_Insurance_Cat><%= benefit.insurance_category rescue nil %></PIz_Insurance_Cat>
+            <PIz_Occupation><%= benefit.occupation rescue nil %></PIz_Occupation>
+            <% if benefit.significant_event %><PIz_SignificantEvent><%= benefit.significant_event rescue nil %></PIz_SignificantEvent><% end %>
+            <PIz_Status><%= benefit.status rescue nil %></PIz_Status>
+            <PIz_Supp_Record_Type><%= benefit.supp_record_type rescue nil %></PIz_Supp_Record_Type>
+            <% if benefit.benefit_type  == "I"%>
+            <PIz_Waiting_Period><%= benefit.waiting_period rescue nil %></PIz_Waiting_Period>
+            <% end %>
+         </createPolicyBenefitInput>
+         <endUser><%= end_user %></endUser>         
+      </ser:createPolicyBenefit>
+   </soapenv:Body>
+</soapenv:Envelope>

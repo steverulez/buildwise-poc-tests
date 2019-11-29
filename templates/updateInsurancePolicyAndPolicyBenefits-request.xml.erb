@@ -1,0 +1,58 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:updateInsurancePolicyAndPolicyBenefits>
+         <clientId><%= benefit.client_number.strip %></clientId>
+         <insurerCode><%= benefit.insurer %></insurerCode>
+         <policyNumber><%= benefit.policy_number %></policyNumber>
+         <benefitType><%= benefit.benefit_type.strip %></benefitType>
+         <insuranceCategory><%= benefit.insurance_category %></insuranceCategory>
+         <effectiveDate><%= benefit.effective.strftime('%Y-%m-%d') %></effectiveDate>
+         <updateInsurancePolicyAndPolicyBenefitsInput>
+<!--         
+            <PIc_Benefit_Roll_In>?</PIc_Benefit_Roll_In>
+            <PIc_Exclusions_Apply>?</PIc_Exclusions_Apply>
+            <PId_PEC_End>?</PId_PEC_End>
+            <PId_PEC_Start>?</PId_PEC_Start>
+            <PIf_CRB>?</PIf_CRB>
+            <PIf_DollarAdditional>?</PIf_DollarAdditional>
+            <PIf_Dollar_Default>?</PIf_Dollar_Default>
+-->            
+            <% if benefit.units_default && benefit.units_default.to_s.size > 0 %>
+            <PIf_IP_Salary_Pcnt>?</PIf_IP_Salary_Pcnt>
+            <PIf_Salary></PIf_Salary>
+            <% end %>
+            <% if benefit.units_default && benefit.units_default.to_s.size > 0 %>
+            <PIf_UnitsAdditional><%=  benefit.units_additional %></PIf_UnitsAdditional>
+            <PIf_Units_Default><%= benefit.units_default %></PIf_Units_Default>
+            <% end %>
+            
+            <PIz_Benefit_Feature><%= benefit.benefit_feature.strip rescue nil %></PIz_Benefit_Feature>
+            <% if benefit.benefit_type == "I" %>
+            <PIz_Benefit_Period><%= benefit.benefit_period.strip rescue nil %></PIz_Benefit_Period>
+            <% end %>
+<!--            
+            <PIz_Financial_Uwrite>?</PIz_Financial_Uwrite>
+-->            
+            <PIz_Occupation><%= benefit.occupation.strip %></PIz_Occupation>
+            
+<!--            <PIz_SignificantEvent>?</PIz_SignificantEvent> -->
+            <PIz_Status><%= benefit.status %></PIz_Status>
+            <% if benefit.supp_record_type && benefit.supp_record_type.strip.size > 0%>
+            <PIz_Supp_Record_Type><%= benefit.supp_record_type %></PIz_Supp_Record_Type>
+            <% end %>
+            <% if benefit.waiting_period && benefit.waiting_period.strip.size > 0 %>
+            <PIz_Waiting_Period><%= benefit.waiting_period %></PIz_Waiting_Period>
+            <% end %>
+<!--            
+            <PLc_At_Work_On_Join>?</PLc_At_Work_On_Join>
+            <PLc_Stamp_Duty></PLc_Stamp_Duty>
+            <PLd_Commencement></PLd_Commencement>
+            <PLz_Status></PLz_Status>
+            <PLz_Supp_Record_Type></PLz_Supp_Record_Type>
+-->            
+         </updateInsurancePolicyAndPolicyBenefitsInput>
+         <endUser><%= end_user %></endUser>
+      </ser:updateInsurancePolicyAndPolicyBenefits>
+   </soapenv:Body>
+</soapenv:Envelope>

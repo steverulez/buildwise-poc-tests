@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:createInsurancePolicy>
+         <createInsurancePolicyInput>
+            <% if policy.at_work_on_join %><PLc_At_Work_On_Join><%= policy.at_work_on_join %></PLc_At_Work_On_Join><% end %>
+            <% if policy.stamp_duty%><PLc_Stamp_Duty><%= policy.stamp_duty %></PLc_Stamp_Duty><% end %>
+            <PLd_Commencement><%= policy.commencement.strftime('%Y-%m-%d') %></PLd_Commencement>
+            <PLz_Client><%= policy.client.client_number.strip %></PLz_Client>
+            <% if policy.fund %><PLz_Fund><%= policy.fund rescue "    " %></PLz_Fund><% end %>
+            <PLz_Insurer><%= policy.insurer %></PLz_Insurer>
+            <PLz_Status><%= policy.status %></PLz_Status>
+            <% if policy.supp_record_type %><PLz_Supp_Record_Type><%= policy.supp_record_type %></PLz_Supp_Record_Type><% end %>
+         </createInsurancePolicyInput>
+         <endUser><%= end_user %></endUser>         
+      </ser:createInsurancePolicy>
+   </soapenv:Body>
+</soapenv:Envelope>

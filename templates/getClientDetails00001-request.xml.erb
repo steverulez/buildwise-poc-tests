@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getClientDetails00001>
+        <endUser><%= end_user %></endUser>
+        <D2z_Client><%= client_number %></D2z_Client>
+      </ser:getClientDetails00001>
+   </soapenv:Body>
+</soapenv:Envelope>

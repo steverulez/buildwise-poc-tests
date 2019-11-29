@@ -1,0 +1,21 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getMemberTransactions00001>         
+          <endUser><%= end_user %></endUser>
+         <!--Optional:-->
+         <fundCode>GSUP</fundCode>
+         <!--Optional:-->
+         <memberNumber>K52497</memberNumber>
+         <!--Optional:-->
+         <startDate>2019-01-01</startDate>
+         <!--Optional:-->
+         <endDate>2019-07-20</endDate>
+         <!--Optional:
+         <transactionType name="AP">
+            <transactionSubType name="?"/>
+         </transactionType>
+         -->
+      </ser:getMemberTransactions00001>
+   </soapenv:Body>
+</soapenv:Envelope>

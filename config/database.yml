@@ -1,0 +1,166 @@
+DEV01:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-DEV01\db01
+  host: ACURITY-DB-DEV01
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_DEV01
+  timeout: 60
+  
+DIT12:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-DIT12\db01
+  host: ACURITY-DB-DIT12
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_DIT12
+  timeout: 60
+
+DEV18:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-DEV18\db01
+  host: ACURITY-DB-DEV18
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_DEV18
+  timeout: 60
+
+
+
+DIT14:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-DIT14\db01
+  host: ACURITY-DB-DIT14
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_DIT14
+  timeout: 60
+
+DIT15:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-DIT15\db01
+  host: ACURITY-DB-DIT15
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_DIT15
+  timeout: 60
+
+DIT17:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-DIT17\db01
+  host: ACURITY-DB-DIT17
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_DIT17
+  timeout: 60
+  
+SIT1:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-SIT1\db01
+  host: ACURITY-DB-SIT1
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_SIT1
+  timeout: 60
+
+SIT2:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-SIT2\db01
+  host: ACURITY-DB-SIT2
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_SIT2
+  timeout: 60
+
+SIT3:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-SIT3\db01
+  host: ACURITY-DB-SIT3
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_SIT3
+  timeout: 60
+
+UAT1:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-UAT1\db01
+  host: ACURITY-DB-UAT1
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_UAT1
+  timeout: 60
+
+UAT2:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-UAT2\db01
+  host: ACURITY-DB-UAT2
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_UAT2
+  timeout: 60
+
+UAT3:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-UAT3\db01
+  host: ACURITY-DB-UAT3
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_UAT3
+  timeout: 60
+
+PT:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-PT\db01
+  host: ACURITY-DB-PT
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_PT
+  timeout: 60
+
+PS:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-PS\db01
+  host: ACURITY-DB-PS
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_PS
+  timeout: 60
+
+PRODUCTION:
+  adapter: sqlserver
+  mode: dblib
+  dataserver: ACURITY-DB-PROD\db01
+  host: ACURITY-DB-PROD
+  port: 1433
+  username: GSO\<%= acurity_user_name %>
+  password: <%= acurity_user_pass %>
+  database: Acurity_PROD
+  timeout: 60

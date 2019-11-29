@@ -1,0 +1,6 @@
+CONTROL:DBC=AA:REQ=BA:BTC=W__U__:REP=V001:USR=AKD:DIV=*:FND:----MBR=******:EFD=<%= results.first['TRANSITION_DATE'] rescue nil%>
+HDR:PI CAT EFF PBF PBN PLN STT DEL OCC PBP PST PEN PWP SAL
+<% results.each do |row|%>
+"<%= row['Category']%>","<%= row['TRANSITION_DATE']%>","<%= row['BENEFIT_FEATURE']%>","<%= row['BENEFIT_TYPE']%>",<%= row['POLICY_NUMBER']%>,"CA",N,"<%= row['OCCUPATION']%>","<%= row['BENEFIT_PERIOD']%>","<%= row['PEC_START']%>","<%= row['PEC_END']%>","<%= row['WAITING_PERIOD']%>",<%= row['SALARY']%>
+<% end%>
+END-OF-FILE

@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getMemberAndClientDetails00001>
+         <endUser><%= end_user %></endUser>         
+         <MDz_Fund><%= fund %></MDz_Fund>
+         <MDz_Member><%= member  %></MDz_Member>
+      </ser:getMemberAndClientDetails00001>
+   </soapenv:Body>
+</soapenv:Envelope>

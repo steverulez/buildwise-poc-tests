@@ -1,0 +1,116 @@
+<!-- NOTES
+
+This template file generate ElectronicFileContent for a list of doJOb messages.
+
+<%= %> is dynamic part, ruby syntax.
+
+For easier readability, we break control line parameter line by line.  NOTE: make sure every subline starting from column 0.
+If you see &#10; in sample control line text, that means a new line (you may use &#10; in this file as well)
+-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:doJob00001>
+        <% if defined?(message_type) && message_type == "Q6PD" %>
+        <ElectronicFileContent>CONTROL:DIV=*:DBC=AA:REQ=BA:BTC=W__R__:REP=Q6PD:FND=----:USR=AP1:EFD=<%= effective_date %>
+_clientID=<%= client_number %>
+END-OF-FILE</ElectronicFileContent>
+        
+        <% elsif defined?(message_type) && message_type == "Q6AD" %>        
+
+        <ElectronicFileContent>CONTROL:DIV=*:DBC=AA:REQ=BA:BTC=W__R__:REP=Q6AD:FND=----:USR=AP1:EFD=<%= effective_date %>
+_clientID=<%= client_number %>
+_Insurer=QINSUR
+_effectiveDate=<%= effective_date %>
+_occupationalRatingChangeFlag=<%= occupational_rating_change_flag ? "Y" : "N" %>
+_backToDefault=<%= return_to_default  ? "Y" : "N"  %>
+_isBenefitStatusPending=<%= is_benefit_status_pending ? "Y" : "N"%>
+_personalisationFlag=<%= personalisation_flag ? "Y" : "N"%>
+_optOutDeathFlag=<%= death_opt_out ? "Y" : "N"  %>
+_optOutTPDFlag=<%= tpd_opt_out ? "Y" : "N"  %>
+_optOutIPFlag=<%= ip_opt_out ? "Y" : "N"  %>
+_currentOcr=<%= occupation_ranking %>
+_optIn=<%= permanent_opt_in ? "Y" : "N" %>
+_deathCoverType=<%= death_cover_type rescue 'U' %>
+_deathCoverUnits=<%= death_cover_units rescue '2' %>
+_tpdCoverType=<%= tpd_cover_type rescue 'U' %>
+_tpdCoverUnits=<%= tpd_cover_units rescue '2' %>
+END-OF-FILE</ElectronicFileContent>
+
+        <% elsif defined?(message_type) && message_type == "Q6AA" %>        
+
+        <ElectronicFileContent>CONTROL:DIV=*:DBC=AA:REQ=BA:BTC=W__R__:REP=Q6AA:FND=----:USR=AP1:EFD=<%= effective_date %>
+_clientID=<%= client_number %>
+_startPeriodDate=<%= start_date%>
+_endPeriodDate=<%= end_date %>
+END-OF-FILE</ElectronicFileContent>
+
+        <% elsif defined?(message_type) && message_type == "U9IU" %>        
+
+         <ElectronicFileContent>CONTROL:DBC=AA:REQ=BA:BTC=W__U__:REP=U9IU:USR=AP1:DIV=*:EFD=<%= effective_date %>:FND=<%= fund %>:MBR=<%= member_number %>
+END-OF-FILE</ElectronicFileContent>
+
+        <% elsif defined?(message_type) && message_type == "Q6AB" %>        
+
+         <ElectronicFileContent>CONTROL:DIV=*:DBC=AA:REQ=BA:BTC=W__R__:REP=Q6AB:FND=----:USR=AP1:EFD=<%= effective_date %>
+_clientID=<%= client_number %>
+_effectiveDate=<%= effective_date %>
+END-OF-FILE</ElectronicFileContent>
+
+
+        <% elsif defined?(message_type) && message_type == "U9BE" %>        
+
+         <ElectronicFileContent>CONTROL:DBC=AA:REQ=BA:BTC=W__U__:ACT=G:REP=U9BE:USR=AP1:DIV=*:EFD=<%= effective_date %>:FND=----
+_file=<%= file_name%>
+_rundate=<%= Date.today.strftime('%d/%m/%Y')%>
+END-OF-FILE</ElectronicFileContent>
+
+
+        <% elsif defined?(message_type) && message_type == "V001" %>
+        <ElectronicFileContent>CONTROL:REQ=BA:BTC=W__U__:REP=V001:DIV=*:FND=GSUP:USR=AP1:EFD=<%= effective_date %>
+HDR:WS FND MEM EFF WST
+"GSUP","<%=  member_number%>","<%= effective_date%>",<%= working_status %>
+END-OF-FILE</ElectronicFileContent>
+
+        <% elsif defined?(message_type) && message_type == "U9BB" %>
+        <ElectronicFileContent>CONTROL:DBC=AA:REQ=BA:BTC=W__U__:ACT=G:REP=U9BB:USR=AP1:DIV=*:EFD=<%= effective_date %>:FND=----:MEM=
+_FILE=<%= file_name%>
+_rundate=<%= Date.today.strftime('%d/%m/%Y')%>
+END-OF-FILE</ElectronicFileContent>
+
+        <% elsif defined?(message_type) && message_type == "U0OI" %>        
+
+         <ElectronicFileContent>CONTROL:DIV=5:DBC=AA:REQ=BA:BTC=W__U__:REP=U0OI:FND=GSUP:MBR=<%=  member_number%>:USR=AP1:EFD=<%= effective_date %>
+END-OF-FILE</ElectronicFileContent>
+
+<% elsif defined?(message_type) && message_type == "Q6BB" %>
+        <ElectronicFileContent>CONTROL:DIV=*:DBC=AA:REQ=BA:BTC=W__U__:REP=Q6BB:FND=----:USR=AP1:EFD=<%= effective_date %>
+_clientID=<%= client_number %>
+_commencementDate=<%= effective_date %>
+END-OF-FILE</ElectronicFileContent>
+
+
+<% elsif defined?(message_type) && message_type == "Q6BC" %>
+        <ElectronicFileContent>CONTROL:DIV=*:DBC=AA:REQ=BA:BTC=W__U__:REP=Q6BC:FND=----:USR=AP1:EFD=<%= effective_date %>
+_clientID=<%= client_number %>
+_effectiveDate=<%= effective_date %>
+END-OF-FILE</ElectronicFileContent>
+
+<% elsif defined?(message_type) && message_type == "Q6BD" %>
+        <ElectronicFileContent>CONTROL:DIV=*:DBC=AA:REQ=BA:BTC=W__U__:REP=Q6BD:FND=----:USR=AP1:EFD=<%= effective_date %>
+_clientID=<%= client_number %>
+END-OF-FILE</ElectronicFileContent>
+
+        <% else %>
+         <ElectronicFileContent>CONTROL:DIV=*:DBC=AA:REQ=BA:BTC=W__R__:REP=Q6AA:FND=----:USR=AP1:EFD=<%= effective_date %>
+_clientID=<%= client_number %>
+_startPeriodDate=<%= start_date.strftime('%d/%m/%Y') %>
+_endPeriodDate=<%= end_date.strftime('%d/%m/%Y') %>
+END-OF-FILE
+</ElectronicFileContent>
+
+          <% end %>
+      </ser:doJob00001>
+   </soapenv:Body>
+</soapenv:Envelope>

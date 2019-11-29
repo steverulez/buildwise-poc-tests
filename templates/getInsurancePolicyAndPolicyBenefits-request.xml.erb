@@ -1,0 +1,19 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:getInsurancePolicyAndPolicyBenefits>
+         <getInsurancePolicyAndPolicyBenefitsInput>
+            <clientId><%= client_number %></clientId>
+            <insurerCode><%= insurer_code rescue "QINSUR" %></insurerCode>
+            <% if defined?(effective) %><PId_Effective><%= effective %></PId_Effective><% end %>
+            <% if defined?(benefit_type) %><PIz_Benefit_Type><%= benefit_type %></PIz_Benefit_Type><% end %>
+            <% if defined?(insurance_category) %><PIz_Insurance_Cat><%= insurance_category %></PIz_Insurance_Cat><% end %>
+            <% if defined?(status) %><PIz_Status><%= status %></PIz_Status><% end %>
+            <% if defined?(commencement) %><PLd_Commencement><%= commencement %></PLd_Commencement><% end %>
+            <% if defined?(policy_number) %><PLl_Policy_Number><%= policy_number %></PLl_Policy_Number><% end %>
+            <% if defined?(status) %><PLz_Status><%= status %></PLz_Status><% end %>
+         </getInsurancePolicyAndPolicyBenefitsInput>
+         <endUser><%= end_user %></endUser>
+      </ser:getInsurancePolicyAndPolicyBenefits>
+   </soapenv:Body>
+</soapenv:Envelope>

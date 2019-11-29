@@ -1,0 +1,15 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.acuritywebservices.finsyn.com.au/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:updateClientSupplementaryRecord00001>
+         <endUser><%= end_user %></endUser>
+         <ClientSupplementaryInput>
+            <SBd_Effective><%=  supplementary.effective_date%></SBd_Effective>
+            <SBc_UserDefndFlags01><%=  supplementary.personalised_flag%></SBc_UserDefndFlags01>
+            <SBz_User_Def_Strg02><%=  supplementary.opt_in_flag %></SBz_User_Def_Strg02>
+            <SBz_Record_Type><%= supplementary.record_type %></SBz_Record_Type>
+            <SBz_Client><%= supplementary.client.client_number %></SBz_Client>
+         </ClientSupplementaryInput>
+      </ser:updateClientSupplementaryRecord00001>
+   </soapenv:Body>
+</soapenv:Envelope>

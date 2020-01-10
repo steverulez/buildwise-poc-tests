@@ -23,9 +23,9 @@ DIT12:
 DEV18:
   adapter: sqlserver
   mode: dblib
-  dataserver: ACURITY-DB-DEV18\db01
-  host: ACURITY-DB-DEV18
-  port: 1433
+  dataserver: 10.190.16.96\db01
+  host: 10.190.16.96
+  port: 50001
   username: GSO\<%= acurity_user_name %>
   password: <%= acurity_user_pass %>
   database: Acurity_DEV18

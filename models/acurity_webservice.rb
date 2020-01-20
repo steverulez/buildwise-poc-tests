@@ -24,7 +24,7 @@ class AcurityWebservice
       "acurity-iws-#{ENV['SERVER'].downcase}"
     else
       # default to dev18
-      "acurity-iws-dev18"
+      "10.190.16.115"
     end
   end
   
@@ -85,7 +85,7 @@ class AcurityWebservice
         {
           "SOAPAction" => "",
           "Content-Type" => "text/xml",
-          "Host" => "acurity-iws-dev18:7580"
+          "Host" => "10.190.16.115:7580"
         }
       )
              

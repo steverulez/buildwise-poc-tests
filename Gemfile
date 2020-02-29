@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rake', '12.3.0'
+gem 'rake', '12.3.3'
 gem 'rspec', :group => 'test'
 gem 'rwebspec-webdriver', '~> 0.5.1'
 gem 'r18n-core', '~>3.2'
